@@ -12,24 +12,36 @@
     <header>
         <h1>Book Library</h1>
     </header>
-    <button class="add-book"></button>
-    <div class="container"></div>
+    <button class="add-book-card">add-book-card</button>
+    <button class="add-book">add book</button>
+    <div class="container">
+    </div>
 
     <div class="form-container">
-        <div class="form-element">
-            <label for="name">Book Name</label>
-            <input type="text" id="name" name="name">
-        </div>
-        <div class="form-element">
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author">
-        </div>
-        <div class="form-element">
-            <label for="pages">Pages</label>
-            <input type="number" name="pages" id="pages">
-        </div>
-        <button>Read</button>
-        <button>Add</button>
+        <button class="close-button" data-close-button>&times;</button>
+        <form action="" id="add-book-form" name="add-book-form">
+            <div class="form-element">
+                <label for="name">Book Name</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-element">
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author">
+            </div>
+            <div class="form-element">
+                <label for="pages">Pages</label>
+                <input type="number" name="pages" id="pages">
+            </div>
+            <div class="form-element">
+                <label for="status"></label>
+                <select name="status" id="status">
+                    <option value="reading">Reading</option>
+                    <option value="read">Read</option>
+                    <option value="want to read">Want To Read</option>
+                </select>
+            </div>
+            <button>Add</button>
+        </form>
     </div>
     <div class="overlay"></div>
 </body>
