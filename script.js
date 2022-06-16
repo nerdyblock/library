@@ -7,32 +7,31 @@ class Book {
     }
 }
 
+
+
 let myLibrary = [];
 
 let container = document.querySelector('.container');
 
-function addToLibrary() {
-    let bookName = prompt('enter bookname');
-    let author = prompt('author');
-    let pages = prompt('pages');
-    let bookStatus = prompt('bookstatus');
+function addToLibrary(bookName,  author, pages, bookStatus) {
     let book = new Book(bookName, author, pages, bookStatus);
+    createCard(bookName, author, pages, bookStatus);
     myLibrary.push(book);
-    // createBookDiv(book.name, book.author);
+    console.log(myLibrary)
 }
 
-function removeFromLibrary() {
-
-}
-
-// function createBookDiv(bookName, author) {
-//     let bookDiv = document.createElement('div');
-//     container.appendChild(bookDiv);
+// function removeFromLibrary(bookName) {
+//     myLibrary = myLibrary.filter(item => {
+//         if(item.name !== bookName) {
+//             return true;
+//         }
+//     })
+//     console.log(myLibrary);
 // }
 
 //create card
 
-let removeCardButtons = document.querySelectorAll('.remove');
+// let removeCardButtons = document.querySelectorAll('.remove');
 
 function createCard(bookNameText, authorNameText, bookPagesText, bookStatusText) {
     let cardDiv = document.createElement('div');
@@ -56,28 +55,36 @@ function createCard(bookNameText, authorNameText, bookPagesText, bookStatusText)
 
     removeCard.addEventListener('click', () => {
         removeCard.parentElement.remove();
+        removeFromLibrary(bookNameText);
     })
-    console.log(removeCardButtons)
 }
 
 
-removeCardButtons.forEach(item =>  {
-    item.addEventListener('click', function() {
-        item.parentElement.remove();
-    });
-})
-
-createCard('mani', 'pal', '23', 'read');
-createCard('ani', 'asdfpal', '123', 'reading');
-
-// remove card
+// removeCardButtons.forEach(item =>  {
+//     console.log(item);
+//     item.addEventListener('click', function() {
+//         console.log('working')
+//         item.parentElement.remove();
+//     });
+// })
 
 
 // add book form
 
-document.getElementById('add-book-form').onsubmit = function() {
-
+document.getElementById('add-book-form').onsubmit = function(e) {
+    e.preventDefault();
+    addToLibrary(
+        inputBookName.value, 
+        inputAuthorName.value, 
+        inputPages.value, 
+        inputStatus.options[inputStatus.selectedIndex].text);
+    closeForm();
 }
+
+let inputBookName = document.getElementById('name')
+let inputAuthorName = document.getElementById('author')
+let inputPages= document.getElementById('pages')
+let inputStatus = document.getElementById('status')
 
 const addBookButton = document.querySelector('.add-book');
 const closeFormButton = document.querySelector('[data-close-button]');

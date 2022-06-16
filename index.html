@@ -19,7 +19,7 @@
 
     <div class="form-container">
         <button class="close-button" data-close-button>&times;</button>
-        <form action="" id="add-book-form" name="add-book-form">
+        <form action="" method="post" id="add-book-form" name="add-book-form" >
             <div class="form-element">
                 <label for="name">Book Name</label>
                 <input type="text" id="name" name="name">
@@ -40,7 +40,7 @@
                     <option value="want to read">Want To Read</option>
                 </select>
             </div>
-            <button>Add</button>
+            <button type="submit" form="add-book-form">Add</button>
         </form>
     </div>
     <div class="overlay"></div>
