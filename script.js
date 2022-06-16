@@ -32,43 +32,43 @@ function removeFromLibrary() {
 
 //create card
 
-// let removeCardButtons = document.querySelectorAll('.remove');
+let removeCardButtons = document.querySelectorAll('.remove');
 
-// function createCard(bookNameText, authorNameText, bookPagesText, bookStatusText) {
-//     let cardDiv = document.createElement('div');
-//     let bookName = document.createElement('h1');
-//     let authorName = document.createElement('h2');
-//     let bookPages = document.createElement('h3');
-//     let bookStatus = document.createElement('h3');
-//     let removeCard = document.createElement('button');
+function createCard(bookNameText, authorNameText, bookPagesText, bookStatusText) {
+    let cardDiv = document.createElement('div');
+    let bookName = document.createElement('h1');
+    let authorName = document.createElement('h2');
+    let bookPages = document.createElement('h3');
+    let bookStatus = document.createElement('h3');
+    let removeCard = document.createElement('button');
 
-//     removeCard.classList.add('.remove');
+    removeCard.classList.add('.remove');
 
-//     bookName.textContent = bookNameText;
-//     authorName.textContent = authorNameText;
-//     bookPages.textContent = bookPagesText;
-//     bookStatus.textContent = bookStatusText;
-//     removeCard.textContent = 'remove';
+    bookName.textContent = bookNameText;
+    authorName.textContent = authorNameText;
+    bookPages.textContent = bookPagesText;
+    bookStatus.textContent = bookStatusText;
+    removeCard.textContent = 'remove';
 
-//     cardDiv.append(bookName, authorName, bookPages, bookStatus, removeCard);
-//     cardDiv.classList.add('card');
-//     container.appendChild(cardDiv);
+    cardDiv.append(bookName, authorName, bookPages, bookStatus, removeCard);
+    cardDiv.classList.add('card');
+    container.appendChild(cardDiv);
 
-//     removeCard.addEventListener('click', () => {
-//         removeCard.parentElement.remove();
-//     })
-//     console.log(removeCardButtons)
-// }
+    removeCard.addEventListener('click', () => {
+        removeCard.parentElement.remove();
+    })
+    console.log(removeCardButtons)
+}
 
 
-// removeCardButtons.forEach(item =>  {
-//     item.addEventListener('click', function() {
-//         item.parentElement.remove();
-//     });
-// })
+removeCardButtons.forEach(item =>  {
+    item.addEventListener('click', function() {
+        item.parentElement.remove();
+    });
+})
 
-// createCard('mani', 'pal', '23', 'read');
-// createCard('ani', 'asdfpal', '123', 'reading');
+createCard('mani', 'pal', '23', 'read');
+createCard('ani', 'asdfpal', '123', 'reading');
 
 // remove card
 
