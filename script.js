@@ -7,17 +7,45 @@ class Book {
     }
 }
 
+class Library {
+    constructor () {
+        this.books = [];
+    }
 
+    updateLibrary(book) {
+        this.books.push(book);
+    }
+    
+    isInLibrary(book) {
+        return this.books.some(item => item.name === book.name);
+    }
+     
+    removeFromLibrary(bookName) {
+        this.books.filter(item => item.name != bookName);
+    }
+}
 
-let myLibrary = [];
+let library = new Library();
+
+// let myLibrary = [];
 
 let container = document.querySelector('.container');
 
-function addToLibrary(bookName,  author, pages, bookStatus) {
-    let book = new Book(bookName, author, pages, bookStatus);
-    createCard(bookName, author, pages, bookStatus);
-    myLibrary.push(book);
-    console.log(myLibrary)
+function addToLibrary() {
+    let book = getbook();
+
+    // console.log(library)
+    if(library.isInLibrary(book)) {
+        alert('This Book Already Exists In Your Library');
+        return;
+    }
+    library.updateLibrary(book);
+    console.log(library.books);
+    // let book = new Book(bookName, author, pages, bookStatus);
+    
+    createCard(book);
+    // myLibrary.push(book);
+    // console.log(myLibrary)
 }
 
 // function removeFromLibrary(bookName) {
@@ -33,7 +61,7 @@ function addToLibrary(bookName,  author, pages, bookStatus) {
 
 // let removeCardButtons = document.querySelectorAll('.remove');
 
-function createCard(bookNameText, authorNameText, bookPagesText, bookStatusText) {
+function createCard(book) {
     let cardDiv = document.createElement('div');
     let bookName = document.createElement('h1');
     let authorName = document.createElement('h2');
@@ -43,10 +71,10 @@ function createCard(bookNameText, authorNameText, bookPagesText, bookStatusText)
 
     removeCard.classList.add('.remove');
 
-    bookName.textContent = bookNameText;
-    authorName.textContent = authorNameText;
-    bookPages.textContent = bookPagesText;
-    bookStatus.textContent = bookStatusText;
+    bookName.textContent = book.name;
+    authorName.textContent = book.author;
+    bookPages.textContent = book.pages;
+    bookStatus.textContent = book.status;
     removeCard.textContent = 'remove';
 
     cardDiv.append(bookName, authorName, bookPages, bookStatus, removeCard);
@@ -55,8 +83,8 @@ function createCard(bookNameText, authorNameText, bookPagesText, bookStatusText)
 
     removeCard.addEventListener('click', () => {
         removeCard.parentElement.remove();
-        removeFromLibrary(bookNameText);
-    })
+        library.removeFromLibrary(bookNameText);
+    });
 }
 
 
@@ -71,14 +99,33 @@ function createCard(bookNameText, authorNameText, bookPagesText, bookStatusText)
 
 // add book form
 
+// function updateGrid() {
+    // 
+    // library.books.forEach()
+// }
+
 document.getElementById('add-book-form').onsubmit = function(e) {
     e.preventDefault();
-    addToLibrary(
+    addToLibrary();
+
+    //updateGrid()
+
+    //let book = getBook()
+    // library.isInLibrary() ?"book already exists" : library.updateBook(book)
+    // addToLibrary(
+    //     inputBookName.value, 
+    //     inputAuthorName.value, 
+    //     inputPages.value, 
+    //     inputStatus.options[inputStatus.selectedIndex].text);
+    closeForm();
+}
+
+function getbook() {
+    return new Book (
         inputBookName.value, 
         inputAuthorName.value, 
         inputPages.value, 
         inputStatus.options[inputStatus.selectedIndex].text);
-    closeForm();
 }
 
 let inputBookName = document.getElementById('name')
