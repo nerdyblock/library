@@ -66,7 +66,7 @@ function createCard(book) {
     let bookName = document.createElement('h1');
     let authorName = document.createElement('h2');
     let bookPages = document.createElement('h3');
-    let bookStatus = document.createElement('h3');
+    let bookStatus = inputStatus.cloneNode(true);
     let removeCard = document.createElement('button');
 
     removeCard.classList.add('.remove');
@@ -74,12 +74,16 @@ function createCard(book) {
     bookName.textContent = book.name;
     authorName.textContent = book.author;
     bookPages.textContent = book.pages;
-    bookStatus.textContent = book.status;
+    bookStatus.value = book.status.toLowerCase();
     removeCard.textContent = 'remove';
 
     cardDiv.append(bookName, authorName, bookPages, bookStatus, removeCard);
     cardDiv.classList.add('card');
     container.appendChild(cardDiv);
+
+    bookStatus.addEventListener('click', () => {
+        book.status = bookStatus.options[bookStatus.selectedIndex].text;
+    });
 
     removeCard.addEventListener('click', () => {
         removeCard.parentElement.remove();
