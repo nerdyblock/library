@@ -20,8 +20,8 @@ class Library {
         return this.books.some(item => item.name === book.name);
     }
      
-    removeFromLibrary(bookName) {
-        this.books.filter(item => item.name != bookName);
+    removeFromLibrary(book) {
+        this.books = this.books.filter(item => item.name != book.name);
     }
 }
 
@@ -83,7 +83,7 @@ function createCard(book) {
 
     removeCard.addEventListener('click', () => {
         removeCard.parentElement.remove();
-        library.removeFromLibrary(bookNameText);
+        library.removeFromLibrary(book);
     });
 }
 
