@@ -29,10 +29,10 @@ let library = new Library();
 
 // let myLibrary = [];
 
-let container = document.querySelector('.container');
+const container = document.querySelector('.book-container');
 
 function addToLibrary() {
-    let book = getbook();
+    const book = getbook();
 
     // console.log(library)
     if(library.isInLibrary(book)) {
@@ -62,20 +62,20 @@ function addToLibrary() {
 // let removeCardButtons = document.querySelectorAll('.remove');
 
 function createCard(book) {
-    let cardDiv = document.createElement('div');
-    let bookName = document.createElement('h1');
-    let authorName = document.createElement('h2');
-    let bookPages = document.createElement('h3');
-    let bookStatus = inputStatus.cloneNode(true);
-    let removeCard = document.createElement('button');
+    const cardDiv = document.createElement('div');
+    const bookName = document.createElement('h1');
+    const authorName = document.createElement('h2');
+    const bookPages = document.createElement('h3');
+    const bookStatus = inputStatus.cloneNode(true);
+    const removeCard = document.createElement('button');
 
     removeCard.classList.add('.remove');
 
     bookName.textContent = book.name;
     authorName.textContent = book.author;
-    bookPages.textContent = book.pages;
+    bookPages.textContent = `${book.pages} pages`;
     bookStatus.value = book.status.toLowerCase();
-    removeCard.textContent = 'remove';
+    removeCard.textContent = 'Remove';
 
     cardDiv.append(bookName, authorName, bookPages, bookStatus, removeCard);
     cardDiv.classList.add('card');
@@ -132,17 +132,17 @@ function getbook() {
         inputStatus.options[inputStatus.selectedIndex].text);
 }
 
-let inputBookName = document.getElementById('name')
-let inputAuthorName = document.getElementById('author')
-let inputPages= document.getElementById('pages')
-let inputStatus = document.getElementById('status')
+const inputBookName = document.getElementById('name')
+const inputAuthorName = document.getElementById('author')
+const inputPages= document.getElementById('pages')
+const inputStatus = document.getElementById('status')
 
-const addBookButton = document.querySelector('.add-book');
+const addBookCard = document.getElementById('add-book');
 const closeFormButton = document.querySelector('[data-close-button]');
 const overlay = document.querySelector('.overlay');
 const addBookForm = document.querySelector('.form-container');
 
-addBookButton.addEventListener('click', openForm);
+addBookCard.addEventListener('click', openForm)
 
 closeFormButton.addEventListener('click', closeForm);
 
