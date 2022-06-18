@@ -12,28 +12,47 @@
     <header>
         <h1>Book Library</h1>
     </header>
-    <button class="add-book-card">add-book-card</button>
-    <button class="add-book">add book</button>
     <div class="container">
+        <div id="add-book">Add Book</div>
+        <div class="book-container"></div>
+        <div class="library-info">
+            <h1>Library</h1>
+            <div class="info">
+                <h3>Books</h3>
+                <h3>0</h3>
+            </div>
+            <div class="info">
+                <h3>Read</h3>
+                <h3>0</h3>
+            </div>
+            <div class="info">
+                <h3>Want To Read</h3>
+                <h3>0</h3>
+            </div>
+            <div class="info">
+                <h3>Reading</h3>
+                <h3>0</h3>
+            </div>
+        </div>
     </div>
 
     <div class="form-container">
-        <button class="close-button" data-close-button>&times;</button>
+        <div class="form-title">
+            <span>Add New Book</span>
+            <button class="close-button" data-close-button>&times;</button>
+        </div>
+        
         <form action="" method="post" id="add-book-form" name="add-book-form" >
             <div class="form-element">
-                <label for="name">Book Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" placeholder="Book Name" required>
             </div>
             <div class="form-element">
-                <label for="author">Author</label>
-                <input type="text" name="author" id="author" required>
+                <input type="text" name="author" id="author" placeholder="Author" required>
             </div>
             <div class="form-element">
-                <label for="pages">Pages</label>
-                <input type="number" name="pages" id="pages" required>
+                <input type="number" name="pages" id="pages" placeholder="Pages" required>
             </div>
             <div class="form-element">
-                <label for="status"></label>
                 <select name="status" id="status">
                     <option value="reading">Reading</option>
                     <option value="read">Read</option>
