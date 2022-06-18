@@ -88,8 +88,41 @@ function createCard(book) {
     removeCard.addEventListener('click', () => {
         removeCard.parentElement.remove();
         library.removeFromLibrary(book);
+        updateLibrary();
     });
+
+    updateLibrary();
 }
+
+const booksCount = document.querySelector('[data-books]');
+const readCount = document.querySelector('[data-read]');
+const readingCount = document.querySelector('[data-reading]');
+const wantToReadCount = document.querySelector('[data-want-to-read]');
+
+function updateLibrary() {
+    booksCount.textContent = library.books.length;
+
+    let readCounter = 0;
+    let readingCounter = 0;
+    let wantToCounter = 0;
+
+    library.books.forEach(item => {
+        if(item.status.toLowerCase() === 'read')  {
+            readCounter++;
+        }
+        else if(item.status.toLowerCase() === 'reading') {
+            readingCounter++;
+        }
+        else {
+            wantToCounter++;
+        }
+    });
+
+    readCount.textContent = readCounter;
+    readingCount.textContent = readingCounter;
+    wantToReadCount.textContent = wantToCounter;
+}
+//update library
 
 
 // removeCardButtons.forEach(item =>  {

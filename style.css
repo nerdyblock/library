@@ -44,6 +44,7 @@ header {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    height: max-content;
     line-height: 2.5em;
     align-items: center;
     border: 1px solid black;
@@ -188,8 +189,8 @@ form button {
 
 .library-info {
     border: 1px solid black;
-    height: 100vh;
     border-radius: 10px;
+    height: 60vh;
     margin-right: 20px;
     padding: 20px;
 }
