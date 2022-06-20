@@ -27,39 +27,19 @@ class Library {
 
 let library = new Library();
 
-// let myLibrary = [];
-
 const container = document.querySelector('.book-container');
 
 function addToLibrary() {
     const book = getbook();
 
-    // console.log(library)
     if(library.isInLibrary(book)) {
         alert('This Book Already Exists In Your Library');
         return;
     }
     library.updateLibrary(book);
-    console.log(library.books);
-    // let book = new Book(bookName, author, pages, bookStatus);
     
     createCard(book);
-    // myLibrary.push(book);
-    // console.log(myLibrary)
 }
-
-// function removeFromLibrary(bookName) {
-//     myLibrary = myLibrary.filter(item => {
-//         if(item.name !== bookName) {
-//             return true;
-//         }
-//     })
-//     console.log(myLibrary);
-// }
-
-//create card
-
-// let removeCardButtons = document.querySelectorAll('.remove');
 
 function createCard(book) {
     const cardDiv = document.createElement('div');
@@ -122,38 +102,10 @@ function updateLibrary() {
     readingCount.textContent = readingCounter;
     wantToReadCount.textContent = wantToCounter;
 }
-//update library
-
-
-// removeCardButtons.forEach(item =>  {
-//     console.log(item);
-//     item.addEventListener('click', function() {
-//         console.log('working')
-//         item.parentElement.remove();
-//     });
-// })
-
-
-// add book form
-
-// function updateGrid() {
-    // 
-    // library.books.forEach()
-// }
 
 document.getElementById('add-book-form').onsubmit = function(e) {
     e.preventDefault();
     addToLibrary();
-
-    //updateGrid()
-
-    //let book = getBook()
-    // library.isInLibrary() ?"book already exists" : library.updateBook(book)
-    // addToLibrary(
-    //     inputBookName.value, 
-    //     inputAuthorName.value, 
-    //     inputPages.value, 
-    //     inputStatus.options[inputStatus.selectedIndex].text);
     closeForm();
 }
 
@@ -164,6 +116,8 @@ function getbook() {
         inputPages.value, 
         inputStatus.options[inputStatus.selectedIndex].text);
 }
+
+// add book pop-up form
 
 const inputBookName = document.getElementById('name')
 const inputAuthorName = document.getElementById('author')
